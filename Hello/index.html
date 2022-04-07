@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>** 도서대여 </title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            width:100vw;
+            height:100vh;
+            /* 뷰포트의 크기만큼 vw, vh */
+            /* 반응형 웹에서는 뷰포트의 개념을 잘 잡아야한다.
+            width나 height를 %로 설정할 경우 디바이스에 따라 화면이 약간씩 차이나는 경우가 있다.
+            이런경우 뷰포트에 대한 비율로 vw, vh단위를 사용하는 것이 좋을 수 있다. (좋기만 한건 아님) */
+
+            display:flex;
+            /*
+            바깥쪽 박스를 플렉스로 지정하면 내부의 박스들은 플렉스 아이템이 된다.
+            내부 박스의 플렉스 아이템들은 인라인 블럭이 되어 width를 조절할수 있다.
+            */
+            flex-flow: column;
+        }
+
+        header{
+            background-color: #d256a1;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <header>
+        <h1>나라도서 대여점</h1>
+        <p>도서대여 시스템 2022 V1</p>
+    </header>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>도서검색</li>
+            <li>도서대여</li>
+            <li>로그인</li>
+            <li>회원가입</li>
+        </ul>
+    </nav>
+    <section>
+        <article><h3>도서검색 내용</h3></article>
+        <article><h3>오늘의 대여</h3></article>
+        <article><h3>미 반납</h3></article>
+    </section>
+    <footer>
+        <address>CopyRight &copy;qaz75391@naver.com</address>
+    </footer>
+
+</body>
+</html>
