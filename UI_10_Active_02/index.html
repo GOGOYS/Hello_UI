@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 홈페이지</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        min-width: 764px;
+        overflow: hidden;
+      }
+
+      nav {
+        flex: 1;
+        vertical-align: top;
+        border: 1px solid green;
+        padding: 10px 20px;
+      }
+
+      nav ul {
+        list-style: none;
+      }
+
+      nav li {
+        border-bottom: 1px solid #aaa;
+        padding: 15px 0 5px 0;
+        /* box-shadow: offset-x offset-y blur color*/
+        /* inrset은 그림자를 box안으로 들어가게 설정*/
+        box-shadow: inset 0 0 0 #b3e3ff;
+        transition: 0.5s;
+      }
+
+      nav li:hover {
+        box-shadow: inset -300px 0 0 #b3e3ff;
+        cursor: pointer;
+        font-weight: 900;
+        color: #004d7a;
+      }
+
+      section {
+        flex: 6;
+        padding: 10px;
+        border: 1px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>HOME</li>
+        <li>회사소개</li>
+        <li>공지사항</li>
+        <li>자유게시판</li>
+      </ul>
+    </nav>
+    <section>
+      <article>
+        국회의원은 법률이 정하는 직을 겸할 수 없다. 제1항의 지시를 받은 당해
+        행정기관은 이에 응하여야 한다. 모든 국민은 그 보호하는 자녀에게 적어도
+        초등교육과 법률이 정하는 교육을 받게 할 의무를 진다. 혼인과 가족생활은
+        개인의 존엄과 양성의 평등을 기초로 성립되고 유지되어야 하며, 국가는 이를
+        보장한다.
+      </article>
+      <article>
+        국회는 국민의 보통·평등·직접·비밀선거에 의하여 선출된 국회의원으로
+        구성한다. 법관은 탄핵 또는 금고 이상의 형의 선고에 의하지 아니하고는
+        파면되지 아니하며, 징계처분에 의하지 아니하고는 정직·감봉 기타 불리한
+        처분을 받지 아니한다. 국가는 대외무역을 육성하며, 이를 규제·조정할 수
+        있다.
+      </article>
+      <article>
+        국회의 정기회는 법률이 정하는 바에 의하여 매년 1회 집회되며, 국회의
+        임시회는 대통령 또는 국회재적의원 4분의 1 이상의 요구에 의하여 집회된다.
+        모든 국민은 신체의 자유를 가진다. 누구든지 법률에 의하지 아니하고는
+        체포·구속·압수·수색 또는 심문을 받지 아니하며, 법률과 적법한 절차에
+        의하지 아니하고는 처벌·보안처분 또는 강제노역을 받지 아니한다.
+      </article>
+    </section>
+  </body>
+</html>
