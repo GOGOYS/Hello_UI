@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 홈페이지</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 100vw;
+        height: 100vh;
+      }
+
+      /*
+      body의 display를 flex 지정하고
+      flex-direction을 column으로 지정하면
+      세로 레이아웃이 된다
+      */
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      /*
+        em단위와 rem단위
+        주변의 text의 font-size를 기준으로 설정하는 단위
+        주변의 text의 font-size를 1(em,rem)으로 보고 그레 비례하여 단위로 설정한다.
+      */
+      header {
+        padding: 2rem;
+        margin: 0 auto;
+      }
+
+      nav li:hover {
+        cursor: pointer;
+        border-bottom: 3px solid yellow;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        background-color: black;
+        color: white;
+      }
+
+      /*
+        border-bottom에 투명색으로 라인을 만들고
+        hover가 되었을때 원하는 색으로 라인을 색칠한다.
+      */
+
+      nav li {
+        padding: 12px 16px;
+        border-bottom: 3px solid transparent;
+        transition: border 0.5s ease-out;
+      }
+
+      nav li:nth-child(4) {
+        margin-left: auto;
+      }
+
+      nav li:nth-of-type(2) {
+        position: relative;
+      }
+      /* 학생정보 li 태그의 position을 relative로 설정을 하고
+      학생정보의 sub ul tag의 position을 absolute로 설정하면
+      absolute로 설정한 tag의 위치를 relative 속 tag와 연관하여
+      위치를 설정할 수 있다.*/
+      nav li:nth-of-type(2) ul {
+        position: absolute;
+        flex-direction: column;
+        opacity: 0;
+        top: 50px;
+        left: 0;
+        padding: 0;
+        margin: 0;
+        width: 180px;
+        transition: 0.5s;
+      }
+
+      nav li:nth-of-type(2):hover ul {
+        opacity: 1;
+      }
+
+      nav li:nth-of-type(2) ul li {
+        position: static;
+        height: 30px;
+        line-height: 20px;
+        padding: 5px 0;
+      }
+
+      /*
+      학생정보의 서브메뉴
+      */
+      nav li:nth-of-type(2):hover ul li {
+      }
+
+      section {
+        flex: 1;
+        border: 1px solid blue;
+      }
+
+      footer {
+        background-color: black;
+        color: white;
+        text-align: center;
+        padding: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>반갑습니다</h1>
+    </header>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>
+          학생정보
+          <ul>
+            <li>학생 리스트</li>
+            <li>학생 검색</li>
+          </ul>
+        </li>
+        <li>성적정보</li>
+        <li>로그인</li>
+        <li>회원가입</li>
+      </ul>
+    </nav>
+    <section></section>
+    <footer>
+      <address>CopyRight &copy; qaz75391@naver.com</address>
+    </footer>
+  </body>
+</html>

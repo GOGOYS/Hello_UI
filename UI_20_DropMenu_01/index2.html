@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 홈페이지</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 100vw;
+        height: 100vh;
+      }
+
+      /*
+      body의 display를 flex 지정하고
+      flex-direction을 column으로 지정하면
+      세로 레이아웃이 된다
+      */
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      /*
+        em단위와 rem단위
+        주변의 text의 font-size를 기준으로 설정하는 단위
+        주변의 text의 font-size를 1(em,rem)으로 보고 그레 비례하여 단위로 설정한다.
+      */
+      header {
+        padding: 2rem;
+        margin: 0 auto;
+      }
+
+      section {
+        flex: 1;
+        border: 1px solid blue;
+      }
+
+      footer {
+        background-color: black;
+        color: white;
+        text-align: center;
+        padding: 0.9em;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      div.nav_box {
+        display: flex;
+        flex-direction: column;
+      }
+
+      nav.main_nav {
+        color: white;
+        background: content-box linear-gradient(to right, blue, white);
+      }
+
+      nav.main_nav > ul {
+        display: flex;
+      }
+
+      nav.main_nav > ul > li {
+        max-height: auto;
+        padding: 12px;
+      }
+
+      nav.main_nav li {
+        border-bottom: 3px solid transparent;
+        list-style: none;
+      }
+
+      /*
+      tag를 보이거나 감출때
+      display:none, display: block 설정을 하는데
+      이 속성을 transition이 작동하지 않는다
+
+      transition을 사용하기 위하여
+      높이를 0으로 했다가 hover 시 100%;
+      히든으로 했다가 hover되면 다시 visivility
+      opacity도 0에서 1로
+      */
+      nav.drop_nav {
+        display: flex;
+        height: 0;
+        visibility: hidden;
+        opacity: 0;
+        transition: 1s ease-out;
+      }
+
+      div.nav-box:hover nav.drop_nav {
+        visibility: visible;
+        height: 100%;
+        opacity: 1;
+      }
+
+      nav.drop_nav li {
+        padding: 12px;
+      }
+      nav li {
+        padding: 12px;
+        cursor: pointer;
+        min-width: 150px;
+        transition: 0.6s;
+      }
+
+      nav.main_nav li:hover {
+        border-bottom: 3px solid white;
+      }
+
+      nav.drop_nav li:not(li.home_sub):hover {
+        border-bottom: 3px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>반갑습니다</h1>
+    </header>
+    <div class="nav-box">
+      <nav class="main_nav">
+        <ul>
+          <li>Home</li>
+          <li>공지사항</li>
+          <li>자유게시판</li>
+          <li>로그인</li>
+        </ul>
+      </nav>
+      <nav class="drop_nav">
+        <ul>
+          <li class="home_sub"></li>
+        </ul>
+        <ul>
+          <li>전체공지사항</li>
+          <li>중요업무사항</li>
+          <li>부서별 공지사항</li>
+        </ul>
+        <ul>
+          <li>자유게시판</li>
+          <li>유머게시판</li>
+          <li>사진게시판</li>
+        </ul>
+        <ul>
+          <li>로그인</li>
+          <li>회원가입</li>
+          <li>1:1 문의</li>
+        </ul>
+      </nav>
+    </div>
+    <section></section>
+    <footer>
+      <address>CopyRight &copy; qaz75391@naver.com</address>
+    </footer>
+  </body>
+</html>
