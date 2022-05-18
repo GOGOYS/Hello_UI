@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 홈페이지</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      div.album {
+        width: 500px;
+        overflow: hidden;
+      }
+
+      div.album div.images img {
+        width: 100%;
+        opacity: 1;
+        transition: 1s ease-in-out;
+      }
+
+      div.images {
+        display: flex;
+      }
+
+      article.container {
+        width: 500px;
+        margin: auto;
+      }
+
+      div.images img {
+        width: 100%;
+      }
+
+      div.ticker {
+        overflow: hidden;
+      }
+      @keyframes ticker-slide {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-500px);
+        }
+      }
+
+      div.ticker div.images {
+        animation: ticker-slide 5s linear infinite;
+      }
+
+      div.ticker:hover div.images {
+        animation-play-state: paused;
+        cursor: pointer;
+      }
+      div.ticker img {
+        width: 100px;
+        border: 1px solid green;
+        opacity: 1;
+        transition: opacity 0.6s ease-in-out;
+      }
+      div.ticker img:hover {
+        opacity: 0.6;
+      }
+    </style>
+  </head>
+  <body>
+    <article class="container">
+      <div class="album">
+        <div class="images">
+          <img src="../img/cat2.jpg" alt="" />
+        </div>
+      </div>
+      <div class="ticker">
+        <div class="images">
+          <img src="../img/cat1.jpg" alt="" />
+          <img src="../img/cat2.jpg" alt="" />
+          <img src="../img/cat3.jpg" alt="" />
+          <img src="../img/cat4.jpg" alt="" />
+          <img src="../img/cat5.jpg" alt="" />
+
+          <img src="../img/cat1.jpg" alt="" />
+          <img src="../img/cat2.jpg" alt="" />
+          <img src="../img/cat3.jpg" alt="" />
+          <img src="../img/cat4.jpg" alt="" />
+          <img src="../img/cat5.jpg" alt="" />
+        </div>
+      </div>
+    </article>
+  </body>
+  <script>
+    const ticker_click_cb = (e) => {
+      /*
+        다수의 img에 event를 설정하려면
+        복잡한 코드를 작성해야 한다
+        tag를 qyerySelectorAll()을 가져와서 for()을 사용하여
+        모든 tag 들에게 event를 add 해야한다
+
+        대신 tag를 감싸고 있는 div.ticker에 event를 설정하고
+        e.target 값을 사용하여 실제 클릭된 대상에 대하여
+        핸들링을 할것이다.
+        */
+
+      const ticker_img = e.target;
+      //최종 클릭된 대상이 img인지 확인하고
+      if (ticker_img.tagName === "IMG") {
+        console.log(ticker_img.src);
+        //const album = document.querySelector("div.album img");
+        //한번에 이미지를 가져올수 있는 코드를 두번에 분리해서 가져온것
+        //tag의 깉이가 길면 이미지를 못가져오는 경우가 발생해서 분리해서 가져오는것
+        //바깥쪽 box부터 순서대로 가져와야한다.
+        const album = document.querySelector("div.album");
+        const albumImg = album.querySelector("img");
+
+        albumImg.style.marginLeft = "-100%";
+        albumImg.style.opacity = "0";
+        albumImg.style.transform = "rotate(-90deg)";
+
+        //albumImg.src = ticker_img.src;
+
+        const newImg = document.createElement("img");
+        newImg.src = ticker_img.src;
+        //newImg.style.transform = "rotate(90deg)";
+
+        album.querySelector("div.images").appendChild(newImg);
+
+        setTimeout(() => {
+          //약 1초후에 div.images box의 img 첫번째 요소 삭제
+          album.querySelector("div.images img").remove();
+        }, 1000);
+      }
+    }; //end ticker_click_cb
+    document.addEventListener("DOMContentLoaded", () => {
+      const ticker = document.querySelector("div.ticker");
+      if (ticker) {
+        ticker.addEventListener("click", ticker_click_cb);
+      }
+    });
+  </script>
+</html>
